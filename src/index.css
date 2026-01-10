@@ -1,0 +1,604 @@
+/* === RESET & FOUNDATION === */
+:root {
+  --bg-color: #000000;
+  --text-color: #e0e0e0;
+  --accent-color: #dc143c;
+  --accent-glow: rgba(220, 20, 60, 0.4);
+  --font-main: 'Outfit', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  transition: background-color linear 5s;
+}
+
+/* === LOADING === */
+.loading {
+  position: fixed;
+  z-index: 99999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.loading:not(:required) {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  box-shadow: var(--accent-color) 1.5em 0 0 0, rgba(220, 20, 60, 0.75) 1.1em 1.1em 0 0, rgba(220, 20, 60, 0.75) 0 1.5em 0 0, var(--accent-color) -1.1em 1.1em 0 0, rgba(220, 20, 60, 0.5) -1.5em 0 0 0, rgba(220, 20, 60, 0.5) -1.1em -1.1em 0 0, rgba(220, 20, 60, 0.75) 0 -1.5em 0 0, rgba(220, 20, 60, 0.75) 1.1em -1.1em 0 0;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* === MAIN CONTENT === */
+.container {
+  /* visible controlled by React state now, but keeping styles */
+  padding-top: 50px;
+}
+
+.peach {
+  background-color: #000000;
+}
+
+.peach-after {
+  animation: peach_alive linear 8s infinite;
+}
+
+@keyframes peach_alive {
+  0% {
+    background-color: #000000;
+  }
+
+  25% {
+    background-color: #000000;
+  }
+
+  50% {
+    background-color: #000000;
+  }
+
+  75% {
+    background-color: #000000;
+  }
+
+  100% {
+    background-color: #000000;
+  }
+}
+
+.bulb {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  background-size: 50px 50px;
+  transition: opacity 1s;
+  /* Add smooth transition */
+}
+
+.bulb-holder {
+  height: 70px;
+}
+
+/* Bulbs using absolute paths for public folder */
+.bulb-glow-yellow {
+  background-image: url('/bulb_yellow.png');
+  animation: bulb_glow_yellow linear 5s;
+}
+
+.bulb-glow-red {
+  background-image: url('/bulb_red.png');
+  animation: bulb_glow_red linear 5s;
+}
+
+.bulb-glow-blue {
+  background-image: url('/bulb_blue.png');
+  animation: bulb_glow_blue linear 5s;
+}
+
+.bulb-glow-green {
+  background-image: url('/bulb_green.png');
+  animation: bulb_glow_green linear 5s;
+}
+
+.bulb-glow-pink {
+  background-image: url('/bulb_pink.png');
+  animation: bulb_glow_pink linear 5s;
+}
+
+.bulb-glow-orange {
+  background-image: url('/bulb_orange.png');
+  animation: bulb_glow_orange linear 5s;
+}
+
+@keyframes bulb_glow_yellow {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes bulb_glow_red {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes bulb_glow_blue {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes bulb_glow_green {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes bulb_glow_pink {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes bulb_glow_orange {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+.bulb-glow-yellow-after {
+  animation: flash 1s infinite;
+}
+
+.bulb-glow-red-after {
+  animation: flash 1.2s infinite;
+}
+
+.bulb-glow-blue-after {
+  animation: flash 1.4s infinite;
+}
+
+.bulb-glow-green-after {
+  animation: flash 1.8s infinite;
+}
+
+.bulb-glow-pink-after {
+  animation: flash 2s infinite;
+}
+
+.bulb-glow-orange-after {
+  animation: flash 2.2s infinite;
+}
+
+@keyframes flash {
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    filter: brightness(0.5);
+  }
+}
+
+/* === TEXT === */
+h1,
+p {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+  user-select: none;
+}
+
+h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+}
+
+/* === BALLOONS === */
+.balloons {
+  position: fixed;
+  bottom: -500px;
+  left: 0;
+  /* Opacity controlled by React now? or class? keeping default 0 */
+  opacity: 0;
+  z-index: 99;
+  width: 100px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
+  /* Transition for opacity */
+  transition: opacity 2s;
+}
+
+.balloons h2 {
+  text-transform: uppercase;
+  font-size: 60px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding-top: 10px;
+  display: none;
+  /* Initially hidden */
+}
+
+/* Balloon Colors via IDs */
+#b1 {
+  background: rgba(242, 179, 0, 0.4);
+  border-color: #F2B300;
+}
+
+#b2 {
+  background: rgba(7, 25, 212, 0.4);
+  border-color: #0719D4;
+}
+
+#b3 {
+  background: rgba(209, 77, 57, 0.4);
+  border-color: #D14D39;
+}
+
+#b4 {
+  background: rgba(143, 173, 0, 0.4);
+  border-color: #8FAD00;
+}
+
+#b5 {
+  background: rgba(131, 119, 228, 0.4);
+  border-color: #8377E4;
+}
+
+#b6 {
+  background: rgba(153, 201, 106, 0.4);
+  border-color: #99C96A;
+}
+
+#b7 {
+  background: rgba(32, 207, 180, 0.4);
+  border-color: #20CFB4;
+}
+
+.balloon-border {
+  position: fixed;
+  top: 100%;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+/* === CONTROLS === */
+.fixed-bottom {
+  background: transparent;
+  border: none;
+  padding: 20px 0;
+}
+
+.btn-primary {
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px transparent;
+  margin: 5px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 0 20px var(--accent-glow);
+  border-color: var(--accent-color);
+}
+
+/* === BANNER === */
+.bannar {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+  transform: translateY(-500px);
+  transition: transform 2s ease-in-out;
+}
+
+.bannar.bannar-come {
+  transform: translateY(0);
+}
+
+/* === MESSAGE === */
+.message {
+  display: none;
+  /* Controlled by React? */
+  position: absolute;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+.message p {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 10px 0;
+}
+
+/* === CAKE === */
+.cake {
+  position: absolute;
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  margin-top: -150px;
+  z-index: 50;
+}
+
+.cake:after {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 6px;
+}
+
+/* Candles */
+.velas {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5px;
+  margin-top: -25px;
+  width: 15px;
+  height: 50px;
+}
+
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6.66px;
+}
+
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+
+/* Fire */
+.fuego {
+  display: none;
+  border-radius: 100%;
+  box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 37.5px;
+}
+
+.fuego:nth-child(1) {
+  animation: fuego 2s infinite;
+}
+
+.fuego:nth-child(2) {
+  animation: fuego 1.5s infinite;
+}
+
+.fuego:nth-child(3) {
+  animation: fuego 1s infinite;
+}
+
+.fuego:nth-child(4) {
+  animation: fuego 0.5s infinite;
+}
+
+.fuego:nth-child(5) {
+  animation: fuego 0.2s infinite;
+}
+
+@keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    transform: translateY(-60px) scale(0);
+  }
+
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Frosting */
+.cobertura {
+  background: rgba(236, 231, 227, 1);
+  border-radius: 150px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -15px;
+  width: 166.6px;
+  height: 37.5px;
+  z-index: 10;
+}
+
+.cobertura:after,
+.cobertura:before {
+  background: rgba(236, 231, 227, 1);
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 30px;
+}
+
+.cobertura:after {
+  top: 20px;
+  right: 42.8px;
+}
+
+.cobertura:before {
+  top: 30px;
+  right: 27.2px;
+}
+
+/* Cake Base */
+.bizcocho {
+  background: rgba(109, 56, 38, 1);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 100px;
+}
+
+.bizcocho:after,
+.bizcocho:before {
+  background: rgba(236, 231, 227, 0.6);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px;
+}
+
+.bizcocho:after {
+  top: 30%;
+  left: 0;
+}
+
+.bizcocho:before {
+  top: 60%;
+  left: 0;
+}
+
+.text-center {
+  text-align: center;
+}
