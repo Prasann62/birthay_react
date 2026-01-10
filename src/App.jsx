@@ -51,6 +51,22 @@ function App() {
 
   return (
     <div className="App">
+      {stage === 'start' && (
+        <>
+          <div className="moon-text">
+            It's your birthday moon
+            <br />
+            <span className="pink-text">Click it</span>
+          </div>
+          <img
+            src="/moon.png"
+            className="moon"
+            alt="moon"
+            onClick={() => setStage('lights_on')}
+            style={{ cursor: 'pointer' }}
+          />
+        </>
+      )}
       <AudioPlayer play={musicPlaying} />
 
       <Lights on={lightsOn} afterMusic={musicPlaying} />

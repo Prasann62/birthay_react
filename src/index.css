@@ -1,6 +1,6 @@
 /* === RESET & FOUNDATION === */
 :root {
-  --bg-color: #000000;
+  --bg-color: #000000e2;
   --text-color: #e0e0e0;
   --accent-color: #dc143c;
   --accent-glow: rgba(220, 20, 60, 0.4);
@@ -13,6 +13,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
+  background-image: url('/bg1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text-color);
   font-family: var(--font-main);
   overflow-x: hidden;
@@ -118,6 +122,7 @@ body {
   background-position: center 0px;
   background-size: 50px 50px;
   transition: opacity 1s;
+  border-radius: 50%;
   /* Add smooth transition */
 }
 
@@ -128,31 +133,37 @@ body {
 /* Bulbs using absolute paths for public folder */
 .bulb-glow-yellow {
   background-image: url('/bulb_yellow.png');
+  box-shadow: 0 80px 90px rgba(255, 215, 0, 0.8), 0 30px 40px rgba(255, 215, 0, 0.6);
   animation: bulb_glow_yellow linear 5s;
 }
 
 .bulb-glow-red {
   background-image: url('/bulb_red.png');
+  box-shadow: 0 80px 90px rgba(255, 69, 0, 0.8), 0 30px 40px rgba(255, 0, 0, 0.6);
   animation: bulb_glow_red linear 5s;
 }
 
 .bulb-glow-blue {
   background-image: url('/bulb_blue.png');
+  box-shadow: 0 80px 90px rgba(30, 144, 255, 0.8), 0 30px 40px rgba(0, 0, 255, 0.6);
   animation: bulb_glow_blue linear 5s;
 }
 
 .bulb-glow-green {
   background-image: url('/bulb_green.png');
+  box-shadow: 0 80px 90px rgba(50, 205, 50, 0.8), 0 30px 40px rgba(0, 255, 0, 0.6);
   animation: bulb_glow_green linear 5s;
 }
 
 .bulb-glow-pink {
   background-image: url('/bulb_pink.png');
+  box-shadow: 0 80px 90px rgba(255, 105, 180, 0.8), 0 30px 40px rgba(255, 20, 147, 0.6);
   animation: bulb_glow_pink linear 5s;
 }
 
 .bulb-glow-orange {
   background-image: url('/bulb_orange.png');
+  box-shadow: 0 80px 90px rgba(255, 140, 0, 0.8), 0 30px 40px rgba(255, 69, 0, 0.6);
   animation: bulb_glow_orange linear 5s;
 }
 
@@ -601,4 +612,61 @@ h2 {
 
 .text-center {
   text-align: center;
+}
+
+/* Moon Styles */
+.moon {
+  position: fixed;
+  top: 340px;
+  left: 600px;
+  width: 175px;
+  height: auto;
+  z-index: 1000;
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 255, 240, 0.9);
+  animation: moon-glow 2.5s infinite alternate;
+}
+
+@keyframes moon-glow {
+  from {
+    box-shadow: 0 0 40px rgba(255, 255, 240, 0.8), 0 0 70px rgba(255, 255, 255, 0.3);
+  }
+
+  to {
+    box-shadow: 0 0 70px rgba(255, 255, 240, 0.9), 0 0 100px rgba(255, 255, 255, 0.5);
+  }
+}
+
+
+.moon-text {
+  position: fixed;
+  top: 260px;
+  left: 488px;
+  width: 400px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  z-index: 1001;
+  pointer-events: none;
+  animation: text-pulse 2s infinite alternate;
+}
+
+.pink-text {
+  color: #FF69B4;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+}
+
+@keyframes text-pulse {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
