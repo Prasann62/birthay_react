@@ -420,6 +420,49 @@ h2 {
   transform: translateY(0);
 }
 
+.banner-text {
+  font-size: 80px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 50px;
+  color: #fff;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  position: relative;
+  z-index: 10;
+}
+
+.blink-yellow {
+  color: #ffd700;
+  animation: flash 1s infinite;
+}
+
+.blink-red {
+  color: #ff4500;
+  animation: flash 1.2s infinite;
+}
+
+.blink-blue {
+  color: #1e90ff;
+  animation: flash 1.4s infinite;
+}
+
+.blink-green {
+  color: #32cd32;
+  animation: flash 1.8s infinite;
+}
+
+.blink-pink {
+  color: #ff69b4;
+  animation: flash 2s infinite;
+}
+
+.blink-orange {
+  color: #ff8c00;
+  animation: flash 2.2s infinite;
+}
+
+
+
 /* === MESSAGE === */
 .message {
   display: none;
