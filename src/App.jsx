@@ -61,7 +61,7 @@ function App() {
             <span className="pink-text">Click it</span>
           </div>
           <img
-            src="/moon.png"
+            src="moon.png"
             className="moon"
             alt="moon"
             onClick={() => setStage('lights_on')}

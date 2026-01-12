@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
-  background-image: url('/bg1.png');
+  background-image: url('bg1.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -132,37 +132,37 @@ body {
 
 /* Bulbs using absolute paths for public folder */
 .bulb-glow-yellow {
-  background-image: url('/bulb_yellow.png');
+  background-image: url('bulb_yellow.png');
   box-shadow: 0 80px 90px rgba(255, 215, 0, 0.8), 0 30px 40px rgba(255, 215, 0, 0.6);
   animation: bulb_glow_yellow linear 5s;
 }
 
 .bulb-glow-red {
-  background-image: url('/bulb_red.png');
+  background-image: url('bulb_red.png');
   box-shadow: 0 80px 90px rgba(255, 69, 0, 0.8), 0 30px 40px rgba(255, 0, 0, 0.6);
   animation: bulb_glow_red linear 5s;
 }
 
 .bulb-glow-blue {
-  background-image: url('/bulb_blue.png');
+  background-image: url('bulb_blue.png');
   box-shadow: 0 80px 90px rgba(30, 144, 255, 0.8), 0 30px 40px rgba(0, 0, 255, 0.6);
   animation: bulb_glow_blue linear 5s;
 }
 
 .bulb-glow-green {
-  background-image: url('/bulb_green.png');
+  background-image: url('bulb_green.png');
   box-shadow: 0 80px 90px rgba(50, 205, 50, 0.8), 0 30px 40px rgba(0, 255, 0, 0.6);
   animation: bulb_glow_green linear 5s;
 }
 
 .bulb-glow-pink {
-  background-image: url('/bulb_pink.png');
+  background-image: url('bulb_pink.png');
   box-shadow: 0 80px 90px rgba(255, 105, 180, 0.8), 0 30px 40px rgba(255, 20, 147, 0.6);
   animation: bulb_glow_pink linear 5s;
 }
 
 .bulb-glow-orange {
-  background-image: url('/bulb_orange.png');
+  background-image: url('bulb_orange.png');
   box-shadow: 0 80px 90px rgba(255, 140, 0, 0.8), 0 30px 40px rgba(255, 69, 0, 0.6);
   animation: bulb_glow_orange linear 5s;
 }

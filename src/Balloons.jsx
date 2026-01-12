@@ -66,7 +66,7 @@ const Balloons = ({ flying, formingMessage }) => {
                     }}
                 >
                     <img
-                        src="/balloon.svg"
+                        src="balloon.svg"
                         alt="balloon"
                         style={{
                             width: '100%',
@@ -93,7 +93,7 @@ const Balloons = ({ flying, formingMessage }) => {
                     </h2>
                 </div>
             ))}
-            <img src="/Balloon-Border.png" width="100%" className="balloon-border" style={{ top: flying ? '-500px' : '100%', transition: 'top 8s' }} />
+            <img src="Balloon-Border.png" width="100%" className="balloon-border" style={{ top: flying ? '-500px' : '100%', transition: 'top 8s' }} />
         </>
     );
 };
