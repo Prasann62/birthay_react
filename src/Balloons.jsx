@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Balloons = ({ flying, formingMessage }) => {
     const showLetters = true; // Set to false if you don't want letters
-    const letters = "prasanna".split('');
+    const letters = "12345678".split('');
     const [positions, setPositions] = useState([]);
 
     // Random float effect

@@ -88,6 +88,15 @@ function App() {
         isCandleBlown={isCandleBlown}
         setStage={setStage}
       />
+
+      {['candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage) && (
+        <img
+          src="angel.png"
+          className={['storytelling', 'finished'].includes(stage) ? 'angel angel-centered' : 'angel'}
+          alt="Angel"
+        />
+      )}
+
     </div>
   );
 }
