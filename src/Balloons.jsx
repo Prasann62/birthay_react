@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 const Balloons = ({ flying, formingMessage }) => {
-    const letters = ['H', 'B', 'D', 'X', 'O', 'L', 'A'];
+    const showLetters = true; // Set to false if you don't want letters
+    const letters = "prasanna".split('');
     const [positions, setPositions] = useState([]);
 
     // Random float effect
@@ -27,7 +28,7 @@ const Balloons = ({ flying, formingMessage }) => {
             const spacing = Math.min(vw * 0.12, 100);
 
             const newPositions = letters.map((_, index) => {
-                const offsetIndex = index - 3; // -3, -2, -1, 0, 1, 2, 3
+                const offsetIndex = index - Math.floor(letters.length / 2);
                 return {
                     left: (center + (offsetIndex * spacing)) + 'px',
                     top: '240px', // Fixed from top as per original script
@@ -45,16 +46,51 @@ const Balloons = ({ flying, formingMessage }) => {
                 <div
                     key={index}
                     id={`b${index + 1}`}
-                    className="balloons text-center"
+                    className="balloons"
                     style={{
                         opacity: flying ? 1 : 0,
                         bottom: flying && !formingMessage ? (positions[index]?.bottom || '-500px') : 'auto',
                         top: formingMessage ? (positions[index]?.top || 'auto') : 'auto', // CSS handles default off-screen
                         left: positions[index]?.left || (index * 10 + 'vw'),
-                        transition: positions[index]?.transition || 'bottom 8s' // Initial fly up duration
+                        transition: positions[index]?.transition || 'bottom 8s', // Initial fly up duration
+                        background: 'none',
+                        border: 'none',
+                        boxShadow: 'none',
+                        backdropFilter: 'none',
+                        width: '120px',
+                        height: '140px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column'
                     }}
                 >
-                    <h2 style={{ display: formingMessage ? 'block' : 'none' }}>{char}</h2>
+                    <img
+                        src="/balloon.svg"
+                        alt="balloon"
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            position: 'absolute',
+                            left: 0,
+                            top: 0,
+                            zIndex: -1,
+                            filter: `hue-rotate(${index * 45}deg)` // Different color for each balloon
+                        }}
+                    />
+                    <h2 style={{
+                        display: (formingMessage && showLetters) ? 'block' : 'none',
+                        position: 'relative',
+                        // top: '30%', // Removed manual offset
+                        marginTop: '-20px', // Slight optical adjustment for balloon shape (wider at top)
+                        color: 'white',
+                        textShadow: '0 0 5px rgba(0,0,0,0.5)',
+                        fontSize: '3rem',
+                        margin: 0,
+                        paddingBottom: '20px' // Optical center
+                    }}>
+                        {char}
+                    </h2>
                 </div>
             ))}
             <img src="/Balloon-Border.png" width="100%" className="balloon-border" style={{ top: flying ? '-500px' : '100%', transition: 'top 8s' }} />

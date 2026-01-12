@@ -47,7 +47,7 @@ const messages = [
     "and make it the best memory..",
     "lastly...",
     "I'd like to wish you one more time",
-    "a very happy birthday Xola Mathembisa"
+    "a very happy birthday prasanna"
 ];
 
 const Message = ({ show, onComplete }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Controls = ({ stage, setStage }) => {
+const Controls = ({ stage, setStage, onBlowCandle, isCandleBlown }) => {
     const handleTurnOn = () => setStage('lights_on');
     const handlePlayMusic = () => setStage('music_playing');
     const handleDecorate = () => setStage('decorating');
@@ -37,7 +37,17 @@ const Controls = ({ stage, setStage }) => {
                         <button className="btn btn-primary" onClick={() => setStage('storytelling')}>A message for you</button>
                     )}
                     {(stage === 'message_shown') && (
-                        <button className="btn btn-primary" onClick={() => { }} style={{ display: 'none' }}>A message for you</button>
+                        <>
+                            {!isCandleBlown && (
+                                <button className="btn btn-primary" onClick={() => {
+                                    onBlowCandle();
+                                    setStage('ready_for_story');
+                                }}>Blow Candle</button>
+                            )}
+                            {isCandleBlown && (
+                                <button className="btn btn-primary" onClick={() => setStage('ready_for_story')}>A message for you</button>
+                            )}
+                        </>
                     )}
                 </div>
             </div>

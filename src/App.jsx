@@ -15,6 +15,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [stage, setStage] = useState('start'); // start, lights_on, music_playing, decorating, balloons_flying, cake_visible, candles_lit, message_shown, storytelling
 
+  const [isCandleBlown, setIsCandleBlown] = useState(false);
+
   useEffect(() => {
     // Simulate initial load
     const timer = setTimeout(() => setLoading(false), 1000);
@@ -29,7 +31,7 @@ function App() {
   const bannerVisible = ['decorating', 'balloons_flying', 'cake_visible', 'candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage);
   const balloonsFlying = ['balloons_flying', 'cake_visible', 'candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage);
   const cakeVisible = ['cake_visible', 'candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage);
-  const candlesLit = ['candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage);
+  const candlesLit = ['candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage) && !isCandleBlown;
   const formingMessage = ['message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage);
   const showStory = stage === 'storytelling';
 
@@ -82,14 +84,9 @@ function App() {
 
       <Controls
         stage={stage}
-        setStage={(newStage) => {
-          if (newStage === 'message_shown') {
-            setStage('message_shown');
-            setTimeout(() => setStage('ready_for_story'), 3000);
-          } else {
-            setStage(newStage);
-          }
-        }}
+        onBlowCandle={() => setIsCandleBlown(true)}
+        isCandleBlown={isCandleBlown}
+        setStage={setStage}
       />
     </div>
   );
