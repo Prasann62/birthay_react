@@ -14,7 +14,9 @@ const Controls = ({ stage, setStage, onBlowCandle, isCandleBlown }) => {
         <div className="navbar fixed-bottom">
             <div className="row w-100">
                 <div className="col-md-8 offset-md-2 col-12 text-center">
-
+                    {stage === 'moon_clicked' && (
+                        <button className="btn btn-primary" onClick={handleTurnOn}>Turn On Lights</button>
+                    )}
                     {stage === 'lights_on' && (
                         <button className="btn btn-primary" onClick={handlePlayMusic}>Play Music</button>
                     )}

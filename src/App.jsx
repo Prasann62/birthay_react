@@ -26,7 +26,7 @@ function App() {
   // Events based on stage for visual side-effects
   const commonActiveStages = ['music_playing', 'decorating', 'balloons_flying', 'cake_visible', 'candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'];
 
-  const lightsOn = stage !== 'start';
+  const lightsOn = stage !== 'start' && stage !== 'moon_clicked';
   const musicPlaying = commonActiveStages.includes(stage);
   const bannerVisible = ['decorating', 'balloons_flying', 'cake_visible', 'candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage);
   const balloonsFlying = ['balloons_flying', 'cake_visible', 'candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage);
@@ -64,7 +64,7 @@ function App() {
             src="moon.png"
             className="moon"
             alt="moon"
-            onClick={() => setStage('lights_on')}
+            onClick={() => setStage('moon_clicked')}
             style={{ cursor: 'pointer' }}
           />
         </>
