@@ -819,7 +819,7 @@ body {
   height: auto;
   z-index: 2000;
   opacity: 0.8;
-  pointer-events: none;
+  /* pointer-events: none; Removed to allow clicking */
   animation: angel-float-random 20s ease-in-out infinite;
 }
 

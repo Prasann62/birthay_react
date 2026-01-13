@@ -16,6 +16,30 @@ function App() {
   const [stage, setStage] = useState('start'); // start, lights_on, music_playing, decorating, balloons_flying, cake_visible, candles_lit, message_shown, storytelling
 
   const [isCandleBlown, setIsCandleBlown] = useState(false);
+  const [angelState, setAngelState] = useState('normal'); // 'normal', 'sad', 'gone'
+
+  // Effect to handle removal of sad angel on any interaction
+  useEffect(() => {
+    if (angelState === 'sad') {
+      const handleInteraction = () => {
+        setAngelState('normal');
+      };
+
+      // Small delay to ensure the initial click doesn't trigger removal immediately if it bubbles up
+      const timer = setTimeout(() => {
+        window.addEventListener('click', handleInteraction);
+        window.addEventListener('keydown', handleInteraction);
+        window.addEventListener('touchstart', handleInteraction);
+      }, 100);
+
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('click', handleInteraction);
+        window.removeEventListener('keydown', handleInteraction);
+        window.removeEventListener('touchstart', handleInteraction);
+      };
+    }
+  }, [angelState]);
 
   useEffect(() => {
     // Simulate initial load
@@ -89,11 +113,16 @@ function App() {
         setStage={setStage}
       />
 
-      {['candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage) && (
+      {(['candles_lit', 'message_shown', 'ready_for_story', 'storytelling', 'finished'].includes(stage) && angelState !== 'gone') && (
         <img
-          src="angel.png"
+          src={angelState === 'sad' ? 'angel_sad.png' : 'angel.png'}
           className={['storytelling', 'finished'].includes(stage) ? 'angel angel-centered' : 'angel'}
           alt="Angel"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent immediate bubbling if check logic was simple
+            if (angelState === 'normal') setAngelState('sad');
+          }}
+          style={{ cursor: 'pointer' }}
         />
       )}
 
