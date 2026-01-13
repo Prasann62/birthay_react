@@ -40,14 +40,56 @@ const Balloons = ({ flying, formingMessage }) => {
         }
     }, [formingMessage]);
 
+    const [animatingBalloons, setAnimatingBalloons] = useState({});
+    const [audio] = useState(() => new Audio('/son.webm'));
+
+    const handleBalloonClick = (index, e) => {
+        // Play audio
+        audio.currentTime = 0;
+        audio.play().catch(e => console.error("Error playing audio:", e));
+
+        // Calculate direction
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        let animationClass = 'bounce-animate'; // Default UP (Top click)
+
+        if (Math.abs(x) > Math.abs(y)) {
+            // Horizontal
+            // Clicked Right (x > 0) -> Bounce Left
+            // Clicked Left (x < 0) -> Bounce Right
+            animationClass = x > 0 ? 'bounce-left' : 'bounce-right';
+        } else {
+            // Vertical
+            // Clicked Bottom (y > 0) -> Bounce Up (bounce-animate)
+            // Clicked Top (y < 0) -> Bounce Down
+            animationClass = y > 0 ? 'bounce-animate' : 'bounce-down';
+        }
+
+        // Trigger animation
+        setAnimatingBalloons(prev => ({ ...prev, [index]: animationClass }));
+
+        // Remove animation class after it finishes (2s)
+        setTimeout(() => {
+            setAnimatingBalloons(prev => {
+                const newState = { ...prev };
+                delete newState[index];
+                return newState;
+            });
+        }, 2000);
+    };
+
     return (
         <>
             {letters.map((char, index) => (
                 <div
                     key={index}
                     id={`b${index + 1}`}
-                    className="balloons"
+                    className={`balloons ${animatingBalloons[index] || ''}`}
+                    onClick={(e) => handleBalloonClick(index, e)}
                     style={{
+                        cursor: 'pointer',
                         opacity: flying ? 1 : 0,
                         bottom: flying && !formingMessage ? (positions[index]?.bottom || '-500px') : 'auto',
                         top: formingMessage ? (positions[index]?.top || 'auto') : 'auto', // CSS handles default off-screen
