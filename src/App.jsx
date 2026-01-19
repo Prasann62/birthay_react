@@ -78,20 +78,20 @@ function App() {
   return (
     <div className="App">
       {stage === 'start' && (
-        <>
-          <div className="moon-text">
+        <div className="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center position-relative" style={{ zIndex: 10 }}>
+          <div className="moon-text position-static transform-none mb-4 w-auto">
             It's your birthday moon
             <br />
             <span className="pink-text">Click it</span>
           </div>
           <img
             src="moon.png"
-            className="moon"
+            className="moon position-static transform-none"
             alt="moon"
             onClick={() => setStage('moon_clicked')}
             style={{ cursor: 'pointer' }}
           />
-        </>
+        </div>
       )}
       <AudioPlayer play={musicPlaying} />
 

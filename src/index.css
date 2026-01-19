@@ -133,37 +133,37 @@ body {
 /* Bulbs using absolute paths for public folder */
 .bulb-glow-yellow {
   background-image: url('./assets/bulb_yellow.png');
-  box-shadow: 0 80px 90px rgba(255, 215, 0, 0.8), 0 30px 40px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 80px 90px rgba(255, 215, 0, 0.8), 0 30px 40px rgba(255, 215, 0, 0.6), 0 0 100px rgba(255, 215, 0, 0.8);
   animation: bulb_glow_yellow linear 5s;
 }
 
 .bulb-glow-red {
   background-image: url('./assets/bulb_red.png');
-  box-shadow: 0 80px 90px rgba(255, 69, 0, 0.8), 0 30px 40px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 80px 90px rgba(255, 69, 0, 0.8), 0 30px 40px rgba(255, 0, 0, 0.6), 0 0 100px rgba(255, 69, 0, 0.8);
   animation: bulb_glow_red linear 5s;
 }
 
 .bulb-glow-blue {
   background-image: url('./assets/bulb_blue.png');
-  box-shadow: 0 80px 90px rgba(30, 144, 255, 0.8), 0 30px 40px rgba(0, 0, 255, 0.6);
+  box-shadow: 0 80px 90px rgba(30, 144, 255, 0.8), 0 30px 40px rgba(0, 0, 255, 0.6), 0 0 100px rgba(30, 144, 255, 0.8);
   animation: bulb_glow_blue linear 5s;
 }
 
 .bulb-glow-green {
   background-image: url('./assets/bulb_green.png');
-  box-shadow: 0 80px 90px rgba(50, 205, 50, 0.8), 0 30px 40px rgba(0, 255, 0, 0.6);
+  box-shadow: 0 80px 90px rgba(50, 205, 50, 0.8), 0 30px 40px rgba(0, 255, 0, 0.6), 0 0 100px rgba(50, 205, 50, 0.8);
   animation: bulb_glow_green linear 5s;
 }
 
 .bulb-glow-pink {
   background-image: url('./assets/bulb_pink.png');
-  box-shadow: 0 80px 90px rgba(255, 105, 180, 0.8), 0 30px 40px rgba(255, 20, 147, 0.6);
+  box-shadow: 0 80px 90px rgba(255, 105, 180, 0.8), 0 30px 40px rgba(255, 20, 147, 0.6), 0 0 100px rgba(255, 105, 180, 0.8);
   animation: bulb_glow_pink linear 5s;
 }
 
 .bulb-glow-orange {
   background-image: url('./assets/bulb_orange.png');
-  box-shadow: 0 80px 90px rgba(255, 140, 0, 0.8), 0 30px 40px rgba(255, 69, 0, 0.6);
+  box-shadow: 0 80px 90px rgba(255, 140, 0, 0.8), 0 30px 40px rgba(255, 69, 0, 0.6), 0 0 100px rgba(255, 140, 0, 0.8);
   animation: bulb_glow_orange linear 5s;
 }
 
@@ -396,6 +396,9 @@ h2 {
   transition: all 0.3s ease;
   box-shadow: 0 0 10px transparent;
   margin: 5px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:hover,
@@ -404,6 +407,7 @@ h2 {
   color: #fff;
   box-shadow: 0 0 20px var(--accent-glow);
   border-color: var(--accent-color);
+  transform: scale(1.05);
 }
 
 /* === BANNER === */
@@ -413,11 +417,13 @@ h2 {
   margin: 0 auto;
   display: block;
   transform: translateY(-500px);
-  transition: transform 2s ease-in-out;
+  opacity: 0;
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
 
 .bannar.bannar-come {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .banner-text {
@@ -660,9 +666,6 @@ h2 {
 
 /* Moon Styles */
 .moon {
-  position: fixed;
-  top: 340px;
-  left: 600px;
   width: 175px;
   height: auto;
   z-index: 1000;
@@ -683,10 +686,6 @@ h2 {
 
 
 .moon-text {
-  position: fixed;
-  top: 260px;
-  left: 488px;
-  width: 400px;
   text-align: center;
   color: #fff;
   font-family: 'Outfit', sans-serif;
@@ -742,22 +741,7 @@ body {
 
 /* Mobile (Phones) */
 @media (max-width: 767px) {
-  .moon {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    top: 15vh;
-  }
-
-  .moon-text {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    text-align: center;
-    font-size: 1.25rem;
-    /* ~20px */
-    top: 10vh;
-  }
+  /* Removed manual moon positioning overrides as Bootstrap handles it */
 
   .banner-text {
     font-size: 2.5rem;
