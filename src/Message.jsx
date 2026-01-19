@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 const messages = [
     "Today’s your day",
-     "no need to say it loud,",
+    "no need to say it loud,",
     "A quiet wish hidden in the crowd.",
     "Like a secret that the heart can’t tell,",
     "Just know, this day is yours—enjoy it well.",
     "இது உன் நாள், இதைக் கொண்டாடு...", // Tamil line: This is your day, celebrate it...
-    "Happy birthday ilakkiya"
+    "Happy birthday ilakkiya",
+    
 ];
 
 const Message = ({ show, onComplete }) => {
